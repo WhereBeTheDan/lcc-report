@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html class="no-js">
+    {% include head.html %}
+
+    <body class="home">
+        {% include header.html %}
+
+        <main id="page-container">
+            <div id="canvas">
+                {% include intro.html %}
+
+                <section data-magellan-destination="section-1" id="section-1" class="intro section">
+                    {% include navigation.html %}
+                    {% include letter.html %}
+                </section>
+                
+                {% include section1.html %}
+                {% include section2.html %}
+                {% include section3.html %}
+                {% include section4.html %}
+                {% include board.html %}
+            </div>
+        </div>
+
+        {% include footer.html %}
+    </body>
+</html>

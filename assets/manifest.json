@@ -1,0 +1,26 @@
+{
+  "paths": {
+    "source": "assets/",
+    "dist": "jekyll/assets/"
+  },
+  "dependencies": {
+    "main.js": {
+      "files": [ "js/main.js" ],
+      "vendor": ["assets/js/vendor/appear.js"],
+      "main": true
+    },
+    "main.css": {
+      "files": [ "scss/main.scss" ],
+      "main": true
+    },
+    "modernizr.js": {
+      "bower": ["modernizr"]
+    },
+    "fonts": {
+      "bower": ["font-awesome"]
+    }
+  },
+  "config": {
+    "jekyllPath": "jekyll"
+  }
+}
