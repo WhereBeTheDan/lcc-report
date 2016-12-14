@@ -1,0 +1,37 @@
+<section id="{{ site.navigation[forloop.index].slug }}" class="{{ site.navigation[forloop.index].slug }} section">
+    <header class="section-header parallax cf" data-lazy="{{ site.navigation[forloop.index].slug }}">
+        <div class="row large-12 columns">
+            <h1 class="main-title">{{ site.navigation[forloop.index].title }}</h1> 
+        </div>
+    </header>
+    <div class="row">
+        <div class="large-12 columns">
+            <article class="story boxed">
+                {{ include.section.story }}
+            </article>
+            
+            <div class="icon-stats">
+                {% for stat in include.section.stats %}
+                    <aside class="stat">
+                        <div class="number">
+                            <p><span>{{ stat.number }}</span> {{ stat.text }}</p>
+                        </div>
+                        <div class="icon">
+                            <object type="image/svg+xml" data="{{ stat.icon.file | prepend: '/img/' | prepend: site.cdnurl }}.svg" alt="{{ stat.icon.alt }}" height="{{ stat.icon.h }}" width="{{ stat.icon.w }}"> 
+                                <img src="{{ stat.icon.file | prepend: '/img/' | prepend: site.cdnurl }}.png" width="{{ stat.icon.w }}" height="{{ stat.icon.h }}" alt="{{ stat.icon.alt }}" /> 
+                            </object>
+                        </div>
+                    </aside>
+                {% endfor %}
+            </div>
+
+            <blockquote>{{ include.section.quote.text }}</blockquote>
+            <div class="attribution">{{ include.section.quote.attribution }}</div>
+
+            <div class="gallery"></div>
+
+        </div>
+    </div>
+    {% assign next = forloop.index | plus: 1 %}
+    <span data-magellan-destination="{{ site.navigation[next].slug }}"></span> 
+</section>

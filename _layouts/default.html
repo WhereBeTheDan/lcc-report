@@ -9,15 +9,15 @@
             <div id="canvas">
                 {% include intro.html %}
 
-                <section data-magellan-destination="section-1" id="section-1" class="intro section">
+                <section data-magellan-destination="{{ site.navigation[0].slug }}" id="{{ site.navigation[0].slug }}" class="{{ site.navigation[0].slug }} section">
                     {% include navigation.html %}
                     {% include letter.html %}
                 </section>
                 
-                {% include section1.html %}
-                {% include section2.html %}
-                {% include section3.html %}
-                {% include section4.html %}
+                {% for section in site.sections %}
+                    {% include section.html section = section %}
+                {% endfor %}
+
                 {% include board.html %}
             </div>
         </div>

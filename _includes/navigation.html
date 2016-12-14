@@ -5,11 +5,8 @@
         </object>
     </div>
     <dl class="sub-nav">
-        <dd data-magellan-arrival="section-1"><a href="#section-1">Introduction</a></dd>
-        <dd data-magellan-arrival="section-2"><a href="#section-2">Engage</a></dd>
-        <dd data-magellan-arrival="section-3"><a href="#section-3">Advocate</a></dd>
-        <dd data-magellan-arrival="section-4"><a href="#section-4">Community</a></dd>
-        <dd data-magellan-arrival="section-5"><a href="#section-5">Awards</a></dd>
-        <dd data-magellan-arrival="section-6"><a href="#section-6">Board of Directors</a></dd>
+        {% for item in site.navigation %}
+            <dd data-magellan-arrival="{{ item.slug }}"><a href="#{{ item.slug }}">{{ item.title }}</a></dd>
+        {% endfor %}
     </dl>
 </nav>

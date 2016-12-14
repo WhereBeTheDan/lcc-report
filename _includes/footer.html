@@ -6,7 +6,7 @@
     	<a href="https://www.linkedin.com/cws/share?url=http%3A%2F%2F{{ site.url }}" class="linkedin" target="_blank"><i aria-hidden="true" class="fa fa-linkedin"></i></a> 
     	<a href="mailto:?subject=Check out {{ site.title }} &amp;body=Check out {{ site.title }}: {{ site.url }}" class="envelope" target="_blank"><i aria-hidden="true" class="fa fa-envelope"></i></a> 
     </div>
-    <p>&copy; 2016 {{ site.company.name }}. All rights reserved.
+    <p>&copy; {{ 'now' | date: '%Y' }} {{ site.company.name }}. All rights reserved.
         <br/> <a href="{{ site.company.website }}" target="_blank">{{ site.company.name }} Website</a></p>
 </footer>
 

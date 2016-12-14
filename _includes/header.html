@@ -3,12 +3,8 @@
     <input type="checkbox" id="menu-toggle" role="button">
     <label for="menu-toggle"><span><i class="fa fa-bars"></i></span></label>
     <ul class="menu">
-        <li><a href="#section-1">Introduction</a></li>
-        <li><a href="#section-2">Cutting-edge care</a></li>
-        <li><a href="#section-3">Hope for the future</a></li>
-        <li><a href="#section-4">Promise in the present</a></li>
-        <li><a href="#section-5">Financials</a></li>
-        <li><a href="#section-6">Governance</a></li>
-        <li><a href="#section-7">Donors</a></li>
+        {% for item in site.navigation %}
+            <li><a href="#{{ item.slug }}">{{ item.title }}</a></li>
+        {% endfor %}
     </ul>
 </nav>

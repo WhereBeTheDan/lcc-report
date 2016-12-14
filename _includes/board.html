@@ -1,45 +1,42 @@
-<section id="section-6" class="governance section">
-    <header class="section-header parallax cover cf" data-lazy="governance">
+<section id="{{ site.navigation[5].slug }}" class="{{ site.navigation[5].slug }} section">
+    <header class="section-header parallax cover cf" data-lazy="{{ site.navigation[5].slug }}">
         <div class="row large-12 columns">
-            <h1 class="main-title">Board of Directors</h1> </div>
+            <h1 class="main-title">{{ site.navigation[5].title }}</h1> </div>
     </header>
     <div class="row">
         <div class="large-12 columns">
             <h2 data-magellan-destination="section-61" id="section-61" class="sub-title">2016 Board of Directors</h2>
-            <div class="row">
 
-                <div class="officers">
-                    <h5 class="board-type">Officers</h5>
-                    {% for member in site.data.board.officers %}
-                        <p>
-                            {% if member.position %}<span class="title">Chairman</span>{% endif %}
-                            Greg Jay, <span class="organization">John Marshall Bank</span>
-                        </p>
-                    {% endfor %}
-                </div>
-
-                <div class="directors">
-                    <h5 class="board-type">Directors</h5>
-                    {% for member in site.data.board.directors %}
-                        <p>
-                            {% if member.position %}<span class="title">{{ member.position }}</span>{% endif %}
-                            {{ member.name }}, <span class="organization">{{ member.org }}</span>
-                        </p>
-                    {% endfor %}
-                </div>
-
-                <div class="ex-officio">
-                    <h5 class="board-type">Ex-officio</h5>
-                    {% for member in site.data.board.exofficio %}
-                        <p>
-                            {% if member.position %}<span class="title">{{ member.position }}</span>{% endif %}
-                            {{ member.name }}, <span class="organization">{{ member.org }}</span>
-                        </p>
-                    {% endfor %}
-                </div>
-
+            <div class="officers">
+                <h4 class="board-type">Officers</h5>
+                {% for member in site.data.board.officers %}
+                    <p>
+                        {% if member.position %}<span class="title">Chairman</span>{% endif %}
+                        Greg Jay, <span class="organization">John Marshall Bank</span>
+                    </p>
+                {% endfor %}
             </div>
+
+            <div class="directors">
+                <h4 class="board-type">Directors</h5>
+                {% for member in site.data.board.directors %}
+                    <p>
+                        {% if member.position %}<span class="title">{{ member.position }}</span>{% endif %}
+                        {{ member.name }}, <span class="organization">{{ member.org }}</span>
+                    </p>
+                {% endfor %}
+            </div>
+
+            <div class="ex-officio">
+                <h4 class="board-type">Ex-officio</h5>
+                {% for member in site.data.board.exofficio %}
+                    <p>
+                        {% if member.position %}<span class="title">{{ member.position }}</span>{% endif %}
+                        {{ member.name }}, <span class="organization">{{ member.org }}</span>
+                    </p>
+                {% endfor %}
+            </div>
+
         </div>
     </div>
-    <span data-magellan-destination="section-7"></span> 
 </section>
