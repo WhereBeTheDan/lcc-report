@@ -1,49 +1,48 @@
 <div class="row">
     <div class="large-12 columns">
-        <h3 class="section-title">Introduction</h3>
-        <h2 class="sub-title">SIR in 2015: A Year in Review</h2>
-        <div class="alignright cf">
-            <div class="bio"> <img class="lazy" data-src="https://d2o0out0f0eahq.cloudfront.net/img/nothing.gif" data-lazy="[https://d2o0out0f0eahq.cloudfront.net/img/bio_matsumoto-alan.jpg, (default)], [https://d2o0out0f0eahq.cloudfront.net/img/bio_matsumoto-alan@2x.jpg, (retina)]" height="187" width="150" alt="matsumoto" />
-                <noscript><img src="https://d2o0out0f0eahq.cloudfront.net/img/bio_matsumoto-alan@2x.jpg" height="187" width="150" alt="matsumoto" /></noscript>
-                <p class="caption"><b>Alan H. Matsumoto</b>,
-                    <br/> MD, FSIR
-                    <br/> <em>SIR President</em></p>
-            </div>
-            <div class="bio"> <img class="lazy" data-src="https://d2o0out0f0eahq.cloudfront.net/img/nothing.gif" data-lazy="[https://d2o0out0f0eahq.cloudfront.net/img/bio_holzer.jpg, (default)], [https://d2o0out0f0eahq.cloudfront.net/img/bio_holzer@2x.jpg, (retina)]" height="187" width="150" alt="holzer" />
-                <noscript><img src="https://d2o0out0f0eahq.cloudfront.net/img/bio_holzer@2x.jpg" height="187" width="150" alt="holzer" /></noscript>
-                <p class="caption"><b>Susan E. Sedory Holzer</b>,
-                    <br/> MA, CAE
-                    <br/> <em>SIR Executive Director</em></p>
+        <h3 class="section-title">{{ site.navigation[0].title }}</h3>
+        <h2 class="sub-title">Dear Fellow Chamber Members</h2>
+
+        <p>Happy 2016!</p>
+
+        <p>I am very honored and humbled to have been afforded the opportunity to take on the role of Chairman of the Board of the Loudoun County Chamber of Commerce for 2015.</p>
+
+        <p>I am extremely proud of the Chamber’s larger accomplishments this year:</p>
+
+        <ul class="bullets">
+            <li>The Chamber’s Policy Committee, through its PolicyMaker Series and Loudoun BizVotes, successfully educated our members and many other Loudoun County residents, bringing clarity to the fog of campaign rhetoric.</li>
+            <li>Following a huge membership drive in 2014, a special emphasis on new member retention by our Membership Chairman, Mitch Sproul, has successfully kept our total membership value steady for the past two years.</li>
+            <li>In its first full year of existence, the Loudoun Chamber Foundation will make two series of grants to assist local nonprofits in their efforts that coincide with the Chamber’s Strategic Plan.</li>
+        </ul>
+
+        <p>For the past few years, I have been working closely with our incoming 2016 Chairman, Greg Jay. He is a longtime resident and businessman in Loudoun County, and has become a good friend of mine. I am confident that the Chamber is now in great hands.</p> 
+
+        <p>Thank you for all for Being a Part of It!, and thank you again for granting me the privilege of leading the Loudoun County Chamber of Commerce for the last year.</p>
+
+        <div class="alignleft cf">
+            <div class="bio"> 
+                {% include lazy-image.html src="bio/bio_matsumoto-alan.jpg" height="187" width="150" alt="matsumoto" %}
             </div>
         </div>
-        <p>Interventional radiology is a medical specialty with the patient at its very foundation. It evolved out of the patient’s need for better treatments and indeed, one of the key hallmarks  of the specialty—“minimally invasive”—is something most  patients desire. As a field known for innovative procedures evolved to find new and better ways to reduce pain and provide better outcomes, the impact of interventional radiology has always kept the patient front and center. Even as interventional radiologists develop disease-specific relationships with their patients, the specialty has never lost sight that patient impact is at the center of what we do. </p>
-        <div class="alignright stat boxed">
-            <p> <a href="https://twitter.com/intent/tweet?text=Learn+how+%E2%80%9CIR+delivers+cutting-edge+care%2C+hope+for+the+future+and+promise+in+the+present%E2%80%9D+%23IRad&amp;url=http%3A%2F%2Fbit.ly%2F1WvQPmF" class="twitter" target="_blank">Help spread the word about the SIR + SIR Foundation annual report.</a> </p>
+
+        <div class="signature">
+            <p>Sincerely,</p>
+
+            <p>Greg Jay<br> <em>Chairman, 868 Estate Vineyards</em></p>
         </div>
-        <p>That’s why this year we are reporting Society of Interventional Radiology and SIR Foundation accomplishments through the lens of the patient. The year’s highlights have been organized according to what these activities ultimately mean for patients, and each section leads off with a patient story that illustrates impact in their own words.</p>
-        <p>What does interventional radiology promise—and deliver—to patients?</p>
-        <div class="clearout">
-            <div class="care icon-box cf">
-                <a href="#section-2" class="icon-circle alignleft">
-                    <object type="image/svg+xml" data="https://d2o0out0f0eahq.cloudfront.net/img/icon-care.svg" alt="icon-care" height="120" width="120"> <img src="https://d2o0out0f0eahq.cloudfront.net/img/icon-care.png" width="120" height="120" alt="icon-care" /> </object>
+
+        <div class="clearout" style="display: none;">
+            {% for i in (1..3) %}
+            <div class="{{ site.navigation[i].slug }} icon-box cf">
+                <a href="#{{ site.navigation[i].slug }}" class="icon-circle alignleft">
+                    <object type="image/svg+xml" data="{{ 'icon/icon-' | append: site.navigation[i].slug | append: '.svg' | prepend: site.imgpath | prepend: site.cdnurl }}" alt="icon-{{ site.navigation[1].slug }}" height="120" width="120"> 
+                        <img src="{{ 'icon/icon-' | append: site.navigation[i].slug | append: '.png' | prepend: site.imgpath | prepend: site.cdnurl }}" width="120" height="120" alt="icon-care" /> 
+                    </object>
                 </a>
-                <h4 class="box-title">Cutting-edge care</h4>
-                <p>Specialty-specific education of the next generation of IRs that emphasizes the clinical care of patients, quality and performance improvement initiatives to improve patient outcomes, and a larger, more diverse workforce to meet the needs of diverse patients.</p>
+                <h4 class="box-title">{{ site.navigation[i].title }}</h4>
             </div>
-            <div class="future icon-box cf">
-                <a href="#section-3" class="icon-circle alignleft">
-                    <object type="image/svg+xml" data="https://d2o0out0f0eahq.cloudfront.net/img/icon-future.svg" alt="icon-future" height="120" width="120"> <img src="https://d2o0out0f0eahq.cloudfront.net/img/icon-future.png" width="120" height="120" alt="icon-future" /> </object>
-                </a>
-                <h4 class="box-title">Hope for the future</h4>
-                <p>Innovative research that tackles medicine’s most vexing problems, a constant quest for the best in patient outcomes, and a collaborative community that enthusiastically shares its knowledge with members and the world at large.</p>
-            </div>
-            <div class="present icon-box cf">
-                <a href="#section-4" class="icon-circle alignleft">
-                    <object type="image/svg+xml" data="https://d2o0out0f0eahq.cloudfront.net/img/icon-present.svg" alt="icon-present" height="120" width="120"> <img src="https://d2o0out0f0eahq.cloudfront.net/img/icon-present.png" width="120" height="120" alt="icon-present" /> </object>
-                </a>
-                <h4 class="box-title">Promise in the present</h4>
-                <p>Legislative and industry support that provides the resources and the environment for the continued questioning that characterizes interventional radiology and works to the benefit of all patients.</p>
-            </div>
+            {% endfor %}
         </div>
     </div>
-</div><span data-magellan-destination="section-2"></span> 
+</div>
+<span data-magellan-destination="{{ site.navigation[1].slug }}"></span> 

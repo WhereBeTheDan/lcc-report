@@ -12,7 +12,6 @@ Stylesheet: Main Stylesheet
 // Automatically injected Bower dependencies via wiredep (never manually edit this block)
 // bower:scss
 @import "../../bower_components/font-awesome/scss/font-awesome.scss";
-@import "../../bower_components/foundation/scss/foundation.scss";
 // endbower
 
 
@@ -32,6 +31,8 @@ IMPORTING PARTIALS
 // import mixins
 @import "partials/mixins";
 
+// import grid
+@import "partials/grid";
 
 /*********************
 BASE (MOBILE) SIZE

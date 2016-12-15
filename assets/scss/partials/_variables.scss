@@ -5,6 +5,7 @@ Author: Sagetopia
 Stylesheet: Variables
 ******************************************************************/
 
+$cdnurl: '';
 
 /*********************
 COLORS
@@ -15,36 +16,59 @@ $light-grey:		#f3f8fa;
 $grey:				#d1dde6;
 $dark-grey:			#333333;
 $black:				#232323;
-	
-$green:				#c4d600;
-$dark-green:		#84bd00;
 
-$light-blue:		#009cde;
-$blue:				#34657f;
-$dark-blue:			#2b596e;
+$light-green:		#d4e05a;
+$green:				#8cc63e;
+$dark-green:		#005e20;
 
-$orange:			#ed8b00;
-$yellow:			#ffd100;
+$light-blue:		#53b7e7;
+$blue:				#007bb4;
+$dark-blue:			#0060a3;
+
+$yellow:			#ffd54e;
+$orange:			#fbaf17;
+$red:				#cd1b21;
+
+$light-purple:		#a2b9e0;
+$purple:			#543b8b;
+$dark-purple:		#2d1451;
 
 $text-color:        $dark-grey;
 $border-color:      $grey;
 
+
 $twitter-blue:		#8db9ca;
-
-$care-color:		$blue;
-$future-color:		$dark-green;
-$present-color:		$light-blue;
-$financials-color:	$blue;
-$governance-color:	$dark-green;
-$donors-color:		$light-blue;
-
 
 
 $sections: (
-	care: (color: $care-color, image: true), 
-	present: (color: $present-color, image: true), 
-	future: (color: $future-color, image: true), 
-	financials: (color: $financials-color, image: true), 
-	governance: (color: $governance-color, image: true), 
-	donors: (color: $donors-color, image: true)
+	engage: (
+		light-color: $light-blue,
+		color: $blue,
+		dark-color: $dark-blue,
+		image: true
+	), 
+	advocate: (
+		light-color: $light-green, 
+		color: $green,
+		dark-color: $dark-green,
+		image: true
+	), 
+	community: (
+		light-color: $yellow, 
+		color: $orange,
+		dark-color: $red,
+		image: true
+	), 
+	awards: (
+		light-color: $light-purple, 
+		color: $purple,
+		dark-color: $dark-purple,
+		image: true
+	), 
+	board: (
+		light-color: $light-green, 
+		color: $green,
+		dark-color: $dark-green,
+		image: true
+	), 
 );

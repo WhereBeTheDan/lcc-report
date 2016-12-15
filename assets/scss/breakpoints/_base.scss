@@ -22,8 +22,8 @@ html {
 		background-position: center center;
 		background-size: 300px auto;
 		background-repeat: no-repeat;
-		background-image: url('https://d2o0out0f0eahq.cloudfront.net/img/logos_sir.png');
-		background-image: url('https://d2o0out0f0eahq.cloudfront.net/img/logos_sir.svg'), linear-gradient(transparent, transparent);
+		background-image: url('#{$cdnurl}/assets/img/logo/logo_lcc.png');
+		background-image: url('#{$cdnurl}/assets/img/logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
 		overflow: hidden;
 		transition: background-color 0;
 
@@ -47,7 +47,7 @@ html {
 body {
 	transition: opacity 1s ease-in;
 	font-size: 90%;
-	font-family: $roboto;
+	font-family: $sans-serif;
 	color: $text-color;
 }
 
@@ -68,17 +68,6 @@ LAYOUT & GRID STYLES
 
 #canvas {
   	overflow: hidden;
-}
-
-.row {
-	z-index: 20;
-	position: relative;
-	clear: both;
-
-	&.mobile-full {
-		width: 100%;
-		margin: 0 auto;
-	}
 }
 
 .section {
@@ -142,7 +131,7 @@ H1, H2, H3, H4, H5 STYLES
 *************************/
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: $roboto-slab;
+	font-family: $serif;
   	line-height: 1.3;
 }
 
@@ -179,7 +168,7 @@ NAV STYLES
   	top: 0;
   	left: 0;
   	width: 100%;
-  	background-color: $green;
+  	background-color: $blue;
   	z-index: 999;
   	list-style: none;
 
@@ -196,12 +185,12 @@ NAV STYLES
 		padding: 0 1em;
   		position: relative;
   		top: 100%;
-  		background: $dark-green;
+  		background: $dark-blue;
   		transition: height 0.2s;
   		overflow: hidden;
 
   		li {
-  			border-top: 1px solid $green;
+  			border-top: 1px solid $light-blue;
 			text-align: center;
 			padding: 0;
 			margin: 0;
@@ -212,7 +201,8 @@ NAV STYLES
   				font-weight: 600;
   				letter-spacing: 1px;
   				display: block;
-  				padding: 10px 0;
+  				padding: 0.9em 0 0.8em;
+  				line-height: 1;
 			}
 
 			&:first-child {
@@ -228,7 +218,7 @@ $bar-thickness: 5px;
 $button-pad: $button-width / 5;                     
 $button-bar-space: $bar-thickness * 2;                
 $button-transition-duration: 0.2s;  
-$button-color: $dark-green;
+$button-color: $dark-blue;
 $bar-color: $white;
 
 label[for="menu-toggle"] {
@@ -236,7 +226,7 @@ label[for="menu-toggle"] {
   	position: absolute;
   	top: 0;
   	right: 0;
-  	margin: 0;
+  	margin: 0 !important;
   	padding: 0;
   	width: $button-width;
   	height: $button-height;
@@ -317,7 +307,7 @@ label[for="menu-toggle"] {
 	}
 
 	& ~ .menu {
-	    height: 321px;
+	    height: 264px;
 	}
 }
 
@@ -339,27 +329,41 @@ GENERAL STYLES
 }
 
 .section-title, .box-title {
-	font-family: $roboto;
+	font-family: $sans-serif;
 	font-weight: bold;
 	letter-spacing: 2px;
 }
 
 .main-title {
-	font-family: $roboto-slab;
+	font-family: $serif;
 	font-weight: 300;
 	margin: 0;
 	line-height: 1.2;
 }
 
 .sub-title {
-	font-family: $roboto-slab;
+	font-family: $serif;
   	border-top: 5px solid $border-color;
   	padding: 0.4em 0 0;
   	margin: 1em 0 0.4em;
 }
 
-.section-header {
-	padding: 3em 0;
+ul.bullets {
+	padding-left: 1.5em;
+	font-size: 1.125em;
+
+	li {
+		position: relative;
+		margin-bottom: 0.75em;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: -1.5em;
+			content: '+';
+			color: $orange;
+		}
+	}
 }
 
 blockquote {
@@ -368,7 +372,6 @@ blockquote {
     position: relative;
     padding: 1.5em 2em 1.5em 3em;
     margin: 1em 0;
-    font-style: italic;
 
 	&:before, &:after {
 		position: absolute;
@@ -395,6 +398,20 @@ blockquote {
     	bottom: 0;
 	}
 }
+	.attribution {
+		margin-left: 35%;
+		font-style: italic;
+		position: relative;
+		font-size: 0.9em;
+
+		&:before {
+			content: '-';
+			position: absolute;
+			top: 0;
+			right: calc(100% + 0.3em);
+		}
+	}
+
 
 .icon-circle {
 	border-radius: 50%;
@@ -458,11 +475,6 @@ blockquote {
 		font-weight: bold;
 	}
 
-	&.story, &.stat {
-		background-color: $light-grey;
-		border: 1px solid darken($light-grey, 3%);
-	}
-
 	&.stat, &.audio {
 		border-radius: 0.75em;
 
@@ -473,48 +485,16 @@ blockquote {
 
 
 	&.story {
+		color: $white;
+		margin-left: -1.5em;
+		margin-right: -1.5em;
+
 		.stat {
 			border: none;
 			padding: 0.5em;
 		}
-
-		@media (max-width: 480px) {
-			margin-left: -15px;
-			margin-right: -15px;
-		}
 	}
 
-
-
-	&.stat {
-		text-align: center;
-		hyphens: manual;
-		word-break: normal;
-
-		.number, p, .twitter {
-			color: $blue;
-		}
-
-		.number {
-			font-weight: 300;
-		}
-
-		p {
-			font-weight: bold;
-			letter-spacing: 0.5px;
-		}
-
-		.twitter {
-			border-bottom: 1px dotted $twitter-blue;
-
-			&:after {
-				content: "\f099";
-				font-family: 'FontAwesome';
-				color: $twitter-blue;
-				margin-left: 0.5em;
-			}
-		}
-	}
 
 	&.audio {
 		background-color: $blue;
@@ -592,29 +572,42 @@ blockquote {
 	}
 }
 
-#goodwin-audio .box-title {
-	text-align: center;
+
+.icon-stats {
+	.stat {
+		.number {
+			
+			p {
+				span {
+					display: block;
+					font-size: 2em;
+					font-weight: bold;
+					line-height: 1;
+				}
+
+				em {
+					color: $dark-green;
+					font-size: 0.9em;
+				}
+			}
+		}
+
+		.icon {
+			max-width: 120px;
+
+			.a {
+				fill: $black;
+			}
+		}
+	}
 }
 
-.chart-container {
-	margin: 1em 0;
-	min-height: 400px;
-
-	.highcharts-title {
-		font-family: $roboto-slab;
-		font-weight: bold;
-	}
-
-	text {
-		font-family: $roboto;
-	}
-}
 
 .lazy {
 	opacity: 0;
 }
 
-.membership {
+.iconbox {
 	margin-bottom: 1em;
 
 	h3 {
@@ -629,6 +622,88 @@ blockquote {
 
 		&.m-last {
 			margin-right: 0;
+		}
+	}
+}
+
+.gallery {
+	display: none;
+}
+
+.slideshow-wrap {
+	.bx-wrapper {
+		box-shadow: none;
+		border: none;
+		background: transparent;
+		margin: 0;
+	}
+
+	.gallery-item {
+		overflow: hidden;
+	}
+
+	&.image-slideshow {
+		background-color: $black;
+	}
+
+	.bx-controls-direction {
+		display: none;
+		
+		.bx-prev, .bx-next {
+			background: $blue;
+			background: transparent;
+			color: $white;
+			// text-indent: 0;
+			// top: calc(100% + 5px);
+			margin: 0;
+			// padding: 0.25em 0.5em;
+
+			&:before, &:after {
+				content: '';
+				display: block;
+				position: absolute;
+				background-color: $white;
+				height: 4px;
+				width: 24px;
+			}
+
+			&:before {
+				top: 20%;
+			}
+
+			&:after {
+				bottom: 20%;
+			}
+		}
+
+		.bx-prev {
+
+			&, &:before, &:after {
+				left: 0;
+			}
+
+			&:before {
+				transform: rotate(-45deg);
+			}
+			
+			&:after {
+				transform: rotate(45deg);
+			}
+		}
+
+		.bx-next {
+
+			&, &:before, &:after {
+				right: 0;
+			}
+
+			&:before {
+				transform: rotate(45deg);
+			}
+			
+			&:after {
+				transform: rotate(-45deg);
+			}
 		}
 	}
 }
@@ -685,130 +760,21 @@ AUDIO/VIDEO PLAYER
     }
 }
 
-.audio-player {
-	text-align: left;
-	margin: 1em auto;
-}
-
-.jp-gui {
-    position: relative;
-    background: $dark-grey;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-.jp-controls {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    font-family: "FontAwesome";
-}
- 
-.jp-controls li {
-    display: inline;
-}
- 
-.jp-controls a {
-	background-color: $black;
-    color: $white;
-
-    &:hover {
-	    color: $white;
-	}
-}
-
-.jp-play, 
-.jp-pause,
-.jp-mute,
-.jp-unmute {
-    width: 30px;
-    height: 30px;
-    display: inline-block;
-    text-align: center;
-    line-height: 30px;
-}
- 
-.jp-controls .jp-play:hover,
-.jp-controls .jp-pause:hover {
-    background-color: lighten($black, 9%);
-}
- 
-.jp-mute,
-.jp-unmute {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: 3;
-}
-
-.jp-progress {
-    background-color: #646464;
-    border-radius: 20px 20px 20px 20px;
-    overflow: hidden;
-    position: absolute;
-    left: 50px;
-    top: 9px;
-    width: calc(100% - 100px);
-
-    .jp-state-no-volume & {
-    	width: calc(100% - 70px);
-	}
-}
- 
-.jp-play-bar {
-    height: 12px;
-    background-color: $yellow;
-    border-radius: 20px 20px 20px 20px;
-}
-
-
-.jp-volume-bar-holder {
-	display: block;
-	position: absolute;
-	background-color: $black;
-	right: 0;
-	bottom: 0;
-	height: 30px;
-	width: 30px;
-	overflow: hidden;
-
-	.jp-state-no-volume & {
-		display: none;
-	}
-}
- 
-.jp-volume-bar {
-	display: none;
-    position: absolute;
-    right: 9px;
-    top: 9px;
-    width: 12px;
-    height: 90px;
-    border-radius: 20px 20px 20px 20px;
-    background-color: #646464;
-    overflow: hidden;
-    z-index: 1;
-}
- 
-.jp-volume-bar-value {
-    background-color: $yellow;
-    position: absolute;
-    bottom: 0;
-    width: 12px;
-    border-radius: 20px 20px 20px 20px;
-    z-index: 2;
-}
-
 
 /*********************
 SECTION HEADERS
 *********************/
 
 .section-header {
-	background-position: center center;
-	background-size: auto 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
+
+	.header-image {
+		padding-top: 3em;
+		padding-bottom: 3em;
+		background-position: center center;
+		background-size: auto 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
 }
 
 @each $section, $values in $sections {
@@ -818,16 +784,32 @@ SECTION HEADERS
 
 			@if (map-get($values, image)) {
 				.no-js & {
-					background-image: url(https://s3.amazonaws.com/sirweb.org/img/header_bg_#{$section}_m.jpg);
+					background-image: url('#{$cdnurl}/assets/img/header/header_bg_#{$section}_m.jpg');
 				}
 			}
 		}
+
 		.sub-title, .box-title {
-			color: map-get($values, color);
+			color: map-get($values, dark-color);
 		}
+
+		.story.boxed {
+			background-color: map-get($values, light-color);
+		}
+
 		blockquote {
 			&:before, &:after {
 				color: map-get($values, color);
+			}
+		}
+
+		.icon-stats {
+			.number {
+				color: map-get($values, color);
+
+				span {
+					color: map-get($values, dark-color);
+				}
 			}
 		}
 	}
@@ -842,7 +824,7 @@ SITE HEADER
 	background-color: $light-blue;
 	background-repeat: no-repeat;
 	background-position: center top;
-	background-image: url('https://d2o0out0f0eahq.cloudfront.net/img/header_bg_intro_m.jpg');
+	background-image: url('#{$cdnurl}/assets/img/header/header_bg_intro_m.jpg');
 	background-size: auto 100%;
 	background-size: cover;
   	padding: 6em 0 2em;
@@ -858,7 +840,7 @@ SITE HEADER
   	}
 
   	.main-title {
-  		font-family: $roboto;
+  		font-family: $sans-serif;
   		font-weight: 500;
   	}
 
@@ -976,7 +958,7 @@ FINANCIALS
 	margin-bottom: 1.5em;
 
 	.title, .description {
-		font-family: $roboto;
+		font-family: $sans-serif;
 	}
 
 	.title {
@@ -1065,11 +1047,17 @@ FINANCIALS
 GOVERNANCE
 *********************/
 
-.governance {
+.board {
 	p {
 		font-weight: bold;
+		line-height: 1.4;
 
 		.title {
+			display: block;
+			color: map-get(map-get($sections, board), color);
+		}
+
+		.organization {
 			font-weight: normal;
 			font-size: 0.8em;
 			font-style: italic;

@@ -11,11 +11,12 @@ FONT FACE
 *********************/
 
 // font stacks
-$sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
-$serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+$roboto:            'roboto';
+$roboto-slab:       'Roboto Slab';
+$nunito:            'Nunito';
 
-$roboto:          'roboto', $sans-serif;
-$roboto-slab:     'Roboto Slab', $serif;
+$sans-serif:        $nunito, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             $nunito, "Georgia", Cambria, Times New Roman, Times, serif;
 
 p {
   -ms-word-wrap: break-word;

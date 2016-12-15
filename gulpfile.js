@@ -227,7 +227,7 @@ gulp.task( 'images', function() {
 		.pipe( cache( imagemin({
 			interlaced: true
 		})))
-		.pipe(gulp.dest(path.dist + 'images' ) );
+		.pipe(gulp.dest(path.dist + 'img'));
 });
 
 
@@ -269,7 +269,7 @@ gulp.task( 'watch', ['browserSync'], function() {
 	gulp.watch([path.source + 'scss/**/*'], ['styles']);
   	gulp.watch([path.source + 'js/**/*'], ['scripts']);
   	gulp.watch([path.source + 'fonts/**/*'], ['fonts']);
-  	gulp.watch([path.source + 'images/**/*'], ['images']);
+  	gulp.watch([path.source + 'img/**/*'], ['images']);
   	gulp.watch(['bower.json', 'assets/manifest.json'], ['build']);
 });
 
