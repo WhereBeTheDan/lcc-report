@@ -1,34 +1,84 @@
 <section id="{{ site.navigation[forloop.index].slug }}" class="{{ site.navigation[forloop.index].slug }} section">
-    <header class="section-header parallax cf" data-lazy="{{ site.navigation[forloop.index].slug }}">
-        <div class="row large-12 columns">
-            <h1 class="main-title">{{ site.navigation[forloop.index].title }}</h1> 
-        </div>
-    </header>
+    {% include section-header.html index = forloop.index %}
     <div class="row">
         <div class="large-12 columns">
-            <article class="story boxed">
-                {{ include.section.story }}
-            </article>
+
+            {% if include.section.story != nil %}
+                <article class="story boxed">
+                    {{ include.section.story }}
+                </article>
+            {% endif %}
             
-            <div class="icon-stats">
-                {% for stat in include.section.stats %}
-                    <aside class="stat">
-                        <div class="number">
-                            <p><span>{{ stat.number }}</span> {{ stat.text }}</p>
-                        </div>
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ stat.icon.file | prepend: '/img/' | prepend: site.cdnurl }}.svg" alt="{{ stat.icon.alt }}" height="{{ stat.icon.h }}" width="{{ stat.icon.w }}"> 
-                                <img src="{{ stat.icon.file | prepend: '/img/' | prepend: site.cdnurl }}.png" width="{{ stat.icon.w }}" height="{{ stat.icon.h }}" alt="{{ stat.icon.alt }}" /> 
-                            </object>
-                        </div>
-                    </aside>
-                {% endfor %}
-            </div>
+            {% if include.section.stats != nil %}
+                <div class="icon-stats">
+                    {% for stat in include.section.stats %}
+                        <aside class="stat">
+                            <div class="number">
+                                <p><span>{{ stat.number }}</span> {{ stat.text }}</p>
+                            </div>
+                            <div class="icon">
+                                <object type="image/svg+xml" data="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.svg" alt="{{ stat.icon.alt }}" height="{{ stat.icon.h }}" width="{{ stat.icon.w }}"> 
+                                    <img src="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.png" width="{{ stat.icon.w }}" height="{{ stat.icon.h }}" alt="{{ stat.icon.alt }}" /> 
+                                </object>
+                            </div>
+                        </aside>
+                    {% endfor %}
+                </div>
+            {% endif %}
 
-            <blockquote>{{ include.section.quote.text }}</blockquote>
-            <div class="attribution">{{ include.section.quote.attribution }}</div>
+            {% if include.section.gallery != nil %}
+                <div class="gallery row">
+                    {% assign section_index = forloop.index %}
+                    {% for item in include.section.gallery %}
+                        {% if item.gallery != false %}
+                            <div class="gallery-item {{ item.type }} col-{{ item.cols | default: '2-2' }}{% if item.new != false %} new-row{% endif %}{% if item.right %} right{% endif %}">
+                                <div class="inner">
+                                    {% if item.type == 'image' %}
+                                        {% include lazy-image.html src = item.src height = item.h width = item.w alt = item.alt %}
+                                    {% elsif item.type == 'quote' %}
+                                        <blockquote>{{ item.text }}</blockquote>
+                                        <div class="attribution">{{ item.attribution }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
-            <div class="gallery"></div>
+                <div class="image-slideshow slideshow-wrap row">
+                    <div class="slideshow-container">
+                        <div class="slideshow">
+                            {% assign section_index = forloop.index %}
+                            {% for item in include.section.gallery %}
+                                {% if item.type == 'image' %}
+                                    {% assign srcparts = item.src | split: '.' %}
+                                    <div class="gallery-item">
+                                        <div class="inner">
+                                            <img src="{{ srcparts[0] | prepend: site.imgpath | prepend: site.cdnurl }}.{{ srcparts[1] }}" height="{{ item.h}}" width="{{ item.w }}" alt="{{ item.alt }}" />
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-slideshow slideshow-wrap row">
+                    <div class="slideshow">
+                        {% assign section_index = forloop.index %}
+                        {% for item in include.section.gallery %}
+                            {% if item.type == 'quote' %}
+                                <div class="gallery-item">
+                                    <div class="inner">
+                                        <blockquote>{{ item.text }}</blockquote>
+                                        <div class="attribution">{{ item.attribution }}</div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endif %}
 
         </div>
     </div>

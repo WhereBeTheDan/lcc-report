@@ -6,7 +6,8 @@ email: info@loudounchamber.org
 description: 2016 Annual Report
 baseurl: ''
 url: "http://annualreport.loudounchamber.org"
-cdnurl: "https://d2o0out0f0eahq.cloudfront.net"
+cdnurl: ''
+imgpath: '/assets/img/'
 
 # Data
 company:

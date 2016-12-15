@@ -14,53 +14,127 @@ officers:
   - name: Dave Trosko
     org:  Morgan Stanley Wealth Management
     position: Treasurer/VP Finance
+  - name: Bob Sevila
+    org: Sevila, Saunders, Huddleston & White, PC
+    position: General Counsel
+  - name: Tony Howard
+    org: Loudoun County Chamber of Commerce
+    position: President & CEO
+
+exec:
+  - name: Tracy Baynard
+    org: McGuireWoods Consulting LLC
+  - name: Mindy Carlin
+    org: Access Point Public Affairs, LLC
+  - name: Georgia Graves
+    org: Bridgman Communications, Inc.
+  - name: Pamela Jones
+    org: Extraordinary Transitions/Long & Foster
+  - name: Lisa Kimball
+    org: Telos Corporation
+  - name: Stacey Miller
+    org: Inova Loudoun Hospital Foundation
+  - name: Thomas W. Moler, Jr.
+    org: Yount, Hyde & Barbour, P.C.
+  - name: K. Lynn Tadlock
+    org: The Claude Moore Charitable Foundation
+  - name: Casey Veatch
+    org: Veatch Commercial Real Estate
+  - name: Tracey M. White
+    org: StoneSprings Hospital Center
+  - name: Kate Zurschmeide
+    org: Great Country Farms
 
 directors:
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
+  - name: Mark Baker
+    org: Bowman Consulting
+  - name: Barron Beneski
+    org: Orbital ATK
+  - name: Brian Chavis
+    org: UBT Cloud and IT Services
+  - name: Michael Cooper
+    org: Metropolitan Washington Airports Authority
+  - name: Donna Fortier
+    org: Mobile Hope
+  - name: Colleen Gillis
+    org: Cooley LLP
+  - name: Richard Hayden
+    org: Unanet
+  - name: Browning Herbert
+    org: Middleburg Bank
+  - name: Brad Hoffman
+    org: DeLeon & Stang
+  - name: Grace Keenan, M.D.
+    org: Signature Partners
+  - name: Renee Kirkpatrick
+    org: Access National Bank
+  - name: Jim Lamble
+    org: Bechtel
+  - name: Geoff Lawson
+    org: The National Conference Center
+  - name: Julie Leidig, Ph.D.
+    org: Northern Virginia Community College
+  - name: Scott Loftis
+    org: Wells Fargo Bank
+  - name: Stephen Mackey
+    org: Mesh Multimedia & Notaviva Vineyards
+  - name: Bill May
+    org: One Loudoun/Miller and Smith
+  - name: Tim McConville
+    org: Odin, Feldman & Pittleman, P.C.
+  - name: Brian E. McGuinness
+    org: J. K. Moving Services
+  - name: Jared Melvin
+    org: Loudoun Insurance Group
+  - name: Shawn Mitchell
+    org: Modern Mechanical, LLC
+  - name: Peggy Musgrave
+    org: Integrus Holdings, Inc.
+  - name: Al Nielsen
+    org: AOL Inc.
+  - name: Amy Owen
+    org: Community Foundation for Loudoun and Northern Fauquier Counties
+  - name: Maggie Parker
+    org: Comstock
+  - name: Jamie Pearson
+    org: Middleburg Bank
+  - name: Rick Pearson
+    org: Neustar
+  - name: Gerald Radican
+    org: Veritas Financial
+  - name: Tim Sargeant
+    org: Dominion
+  - name: Sim Shaikh
+    org: Communicate by Design, LLC
+  - name: Caroline Sheedy
+    org: Janelia Research Campus
+  - name: Jane Taylor
+    org: REHAU
 
 exofficio:
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
-  - name: Greg Jay
-    org:  John Marshall Bank
+  - name: Lorna Clarke
+    org: Leadership Loudoun
+  - name: Kaj Dentler
+    org: Town of Leesburg, Manager
+  - name: Tim Doozan
+    org: Purcellville Business Association
+  - name: Beth Erickson
+    org: Visit Loudoun
+  - name: Tim Hemstreet
+    org: Loudoun County Administrator
+  - name: Susan Henson
+    org: SBDC at MEC-Leesburg
+  - name: Chauvon McFadden
+    org: Loudoun CEO Cabinet
+  - name: Christina Morelli
+    org: LoudounYP
+  - name: Gwen Pangle
+    org: Leesburg Downtown Business Association
+  - name: Buddy Rizer
+    org: Loudoun Department of Economic Development, Executive Director
+  - name: Val Walters
+    org: Dulles South Alliance
+  - name: Eric Williams
+    org: Loudoun County Public Schools, Superintendent
+  - name: Christine Windle
+    org: Dulles Area Association of Realtors

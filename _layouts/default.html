@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html class="loading no-js">
     {% include head.html %}
 
     <body class="home">
@@ -14,7 +14,8 @@
                     {% include letter.html %}
                 </section>
                 
-                {% for section in site.sections %}
+                {% assign s_sections = site.sections | sort: 'order' %}
+                {% for section in s_sections %}
                     {% include section.html section = section %}
                 {% endfor %}
 
