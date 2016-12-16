@@ -22,8 +22,8 @@ html {
 		background-position: center center;
 		background-size: 300px auto;
 		background-repeat: no-repeat;
-		background-image: url('#{$cdnurl}/assets/img/logo/logo_lcc.png');
-		background-image: url('#{$cdnurl}/assets/img/logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
+		background-image: url('#{$cdnurl}#{$assetpath}logo/logo_lcc.png');
+		background-image: url('#{$cdnurl}#{$assetpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
 		overflow: hidden;
 		transition: background-color 0;
 
@@ -54,6 +54,10 @@ body {
 p {
 	font-size: 1.125em;
 	margin-bottom: 1.25em;
+}
+
+object {
+	max-width: 100%;
 }
 
 .no-js {
@@ -103,28 +107,28 @@ a, a:visited {
 	}
 }
 
-.ext-link {
-	font-weight: bold;
-	letter-spacing: 0.5px;
+// .ext-link {
+// 	font-weight: bold;
+// 	letter-spacing: 0.5px;
 
-	&:after {
-		content: "\f245";
-		font-family: "FontAwesome";
-		display: inline-block;
-		height: 14px;
-		width: 14px;
-		padding: 1px 5px;
-		margin: 0 0.5em 0.5em;
-		border-radius: 50%;
-		background-color: $orange;
-		color: $white;
-		text-align: center;
-		vertical-align: middle;
-		font-size: 0.45em;
-		transform: rotate(65deg);
-		transition: background-color 0.2s ease-in-out;
-	}
-}
+// 	&:after {
+// 		content: "\f245";
+// 		font-family: $fa;
+// 		display: inline-block;
+// 		height: 14px;
+// 		width: 14px;
+// 		padding: 1px 5px;
+// 		margin: 0 0.5em 0.5em;
+// 		border-radius: 50%;
+// 		background-color: $orange;
+// 		color: $white;
+// 		text-align: center;
+// 		vertical-align: middle;
+// 		font-size: 0.45em;
+// 		transform: rotate(65deg);
+// 		transition: background-color 0.2s ease-in-out;
+// 	}
+// }
 
 /************************
 H1, H2, H3, H4, H5 STYLES
@@ -343,8 +347,8 @@ GENERAL STYLES
 
 .sub-title {
 	font-family: $serif;
-  	border-top: 5px solid $border-color;
-  	padding: 0.4em 0 0;
+  	// border-top: 5px solid $border-color;
+  	// padding: 0.4em 0 0;
   	margin: 1em 0 0.4em;
 }
 
@@ -438,30 +442,30 @@ blockquote {
 	margin-bottom: 1.5em;
 }
 
-.callout {
-	font-weight: 300;
+// .callout {
+// 	font-weight: 300;
 
-	&.article {
-		display: block;
-		padding-left: 50px;
-		position: relative;
+// 	&.article {
+// 		display: block;
+// 		padding-left: 50px;
+// 		position: relative;
 
-		&:before {
-			content: "\f0f6";
-			font-family: "FontAwesome";
-			font-size: 2em;
-			position: absolute;
-			left: 0;
-			top: 0;
-		}
-	}
+// 		&:before {
+// 			content: "\f0f6";
+// 			font-family: $fa;
+// 			font-size: 2em;
+// 			position: absolute;
+// 			left: 0;
+// 			top: 0;
+// 		}
+// 	}
 
-	&.ext-link:after {
-		height: 18px;
-		width: 18px;
-		padding: 4px 7px;
-	}
-}
+// 	&.ext-link:after {
+// 		height: 18px;
+// 		width: 18px;
+// 		padding: 4px 7px;
+// 	}
+// }
 
 .boxed {
 	padding: 1em;
@@ -574,9 +578,10 @@ blockquote {
 
 
 .icon-stats {
+	margin-bottom: 1.5em;
+
 	.stat {
 		.number {
-			
 			p {
 				span {
 					display: block;
@@ -594,10 +599,7 @@ blockquote {
 
 		.icon {
 			max-width: 120px;
-
-			.a {
-				fill: $black;
-			}
+			padding-right: 1em;
 		}
 	}
 }
@@ -648,15 +650,13 @@ blockquote {
 
 	.bx-controls-direction {
 		display: none;
-		
+
 		.bx-prev, .bx-next {
 			background: $blue;
 			background: transparent;
 			color: $white;
-			// text-indent: 0;
-			// top: calc(100% + 5px);
 			margin: 0;
-			// padding: 0.25em 0.5em;
+			text-indent: -9999px;
 
 			&:before, &:after {
 				content: '';
@@ -678,7 +678,7 @@ blockquote {
 
 		.bx-prev {
 
-			&, &:before, &:after {
+			&:before, &:after {
 				left: 0;
 			}
 
@@ -693,7 +693,7 @@ blockquote {
 
 		.bx-next {
 
-			&, &:before, &:after {
+			&:before, &:after {
 				right: 0;
 			}
 
@@ -769,11 +769,20 @@ SECTION HEADERS
 
 	.header-image {
 		padding-top: 3em;
-		padding-bottom: 3em;
+		padding-bottom: 2em;
 		background-position: center center;
 		background-size: auto 100%;
 		background-size: cover;
 		background-repeat: no-repeat;
+	}
+
+	.main-title .icon-lcc {
+		width: 1em;
+		height: 1em;
+		position: relative;
+		vertical-align: middle;
+		top: -0.4em;
+		color: $white;
 	}
 }
 
@@ -784,7 +793,7 @@ SECTION HEADERS
 
 			@if (map-get($values, image)) {
 				.no-js & {
-					background-image: url('#{$cdnurl}/assets/img/header/header_bg_#{$section}_m.jpg');
+					background-image: url('#{$cdnurl}#{$assetpath}header/header_bg_#{$section}_m.jpg');
 				}
 			}
 		}
@@ -805,7 +814,7 @@ SECTION HEADERS
 
 		.icon-stats {
 			.number {
-				color: map-get($values, color);
+				// color: map-get($values, color);
 
 				span {
 					color: map-get($values, dark-color);
@@ -821,12 +830,13 @@ SITE HEADER
 *********************/
 
 #header {
-	background-color: $light-blue;
+	background-color: $light-yellow;
 	background-repeat: no-repeat;
 	background-position: center top;
-	background-image: url('#{$cdnurl}/assets/img/header/header_bg_intro_m.jpg');
+	// background-image: url('#{$cdnurl}#{$assetpath}header/header_bg_intro_m.jpg');
 	background-size: auto 100%;
 	background-size: cover;
+	background: linear-gradient(to bottom, $light-yellow, $yellow);
   	padding: 6em 0 2em;
   	text-align: center;
 
@@ -837,11 +847,13 @@ SITE HEADER
   	.section-title {
   		text-transform: uppercase;
   		color: $green;
+  		margin: 0 0 2em;
   	}
 
   	.main-title {
   		font-family: $sans-serif;
   		font-weight: 500;
+  		color: $blue;
   	}
 
   	.sub-title {
@@ -857,7 +869,7 @@ SITE HEADER
 	  	height: 45px;
 	  	margin: 40px auto 0;
 	  	z-index: 15;
-	  	background-color: $light-blue;
+	  	background-color: $blue;
 
 	  	a {
   			color: $white;
@@ -887,7 +899,7 @@ INTRO
 		color: $light-blue;
 		padding: 0 0 0.4em;
 		border-top: none;
-		border-bottom: 5px solid $grey;
+		// border-bottom: 5px solid $grey;
 		margin-top: 0;
 	}
 
@@ -1048,6 +1060,14 @@ GOVERNANCE
 *********************/
 
 .board {
+	.board-type {
+		font-weight: bold;
+	    border-bottom: 4px solid $border-color;
+	    margin: 2em 0 1em;
+	    padding: 0 0 0.25em;
+	    text-transform: uppercase;
+	}
+
 	p {
 		font-weight: bold;
 		line-height: 1.4;

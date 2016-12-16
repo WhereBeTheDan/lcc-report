@@ -1,1 +1,12 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><style>.cls-1{fill:#bfd730;}</style></defs><title>icon-advocate</title><path class="cls-1" d="M32.65422,109.84414V90.15251L135.352,57.5915v84.82034ZM145.26469,44.78559,22.74159,82.475v35.05l122.5231,37.6894Z"/><rect class="cls-1" y="77.82269" width="9.91263" height="44.35796"/><rect class="cls-1" x="164.71003" y="61.79513" width="30.77638" height="9.91625" transform="translate(5.56703 146.94198) rotate(-45.0137)"/><rect class="cls-1" x="169.22307" y="95.04202" width="30.77693" height="9.91263"/><rect class="cls-1" x="175.14244" y="117.85488" width="9.91624" height="30.77639" transform="translate(-41.46685 166.37632) rotate(-45)"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="icon-advocate" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+	 y="0px" viewBox="0 0 200 200" style="enable-background:new 0 0 200 200;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#8CC63E;}
+</style>
+<title>icon-advocate</title>
+<path class="st0" d="M32.7,109.8V90.2l102.7-32.6v84.8L32.7,109.8z M145.3,44.8L22.7,82.5v35l122.5,37.7V44.8z M0,77.8h9.9v44.4H0
+	V77.8z M165.7,74.1l21.8-21.8l7,7l-21.8,21.8L165.7,74.1z M169.2,95H200v9.9h-30.8V95z M165.7,125.9l7-7l21.8,21.8l-7,7L165.7,125.9
+	z"/>
+</svg>

@@ -21,3 +21,13 @@ Stylesheet: Desktop Stylsheet
 		margin-right: 0;
 	}
 }
+
+.bx-controls-direction {
+	.bx-prev {
+		left: -35px;
+	}
+
+	.bx-next {
+		right: -35px;
+	}
+}

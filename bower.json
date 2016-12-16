@@ -24,9 +24,9 @@
     "normalize-css": "normalize.css#^4.2.0",
     "jquery": "~1.x",
     "modernizr": "^2.8.3",
-    "font-awesome": "^4.6.3",
     "foundation": "5.5.1",
-    "bxslider-4": "^4.2.5"
+    "bxslider-4": "^4.2.5",
+    "font-awesome": "^4.7.0"
   },
   "overrides": {
     "modernizr": {

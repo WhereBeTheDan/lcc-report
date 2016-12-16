@@ -3,6 +3,8 @@ function updateViewportDimensions() {
   return { width:x,height:y };
 }
 
+var sliders = {};
+
 (function($) {
   $.fn.lazyInterchange = function() {
     var selectors = this.each(function() {
@@ -18,7 +20,7 @@ function updateViewportDimensions() {
   $(document).foundation({
   	'magellan-expedition': {
   		fixed_top: 20,
-      offset_by_height: false
+      offset_by_height: false,
   	},
   });
 
@@ -66,9 +68,25 @@ function updateViewportDimensions() {
       }
     }
 
+
+    $('.slideshow').each(function(index, el) {
+      var sliderId = this.id ? this.id : 'quotes-' + index;
+      sliders[sliderId] = $(this).bxSlider({
+        auto: false,
+        mode: 'horizontal',
+        speed: 1000,
+        pager: false,
+        pause: 4200,
+        maxSlides: 1,
+        slideWidth: 775
+      });
+    });
+
     $('.slideshow-container').append('<div class="close-btn"><span /><span class="bottom" /></div>');
 
     $('.gallery .gallery-item img').on('click', function() {
+      var slider = sliders[$(this).closest('.section').find('.image-slideshow .slideshow')[0].id];
+      slider.goToSlide($(this).closest('.gallery-item').data('index'));
       $(this).closest('.section').addClass('slideshow-open')
         .find('.image-slideshow').addClass('active').animate({ opacity: 1, 'z-index': 100 });
     });
@@ -77,38 +95,25 @@ function updateViewportDimensions() {
       $(this).closest('.image-slideshow').animate({ opacity: 0 }, function() { 
         var $this = $(this);
         setTimeout(function() {
-          $this.css({ 'z-index': '-1' }).closest('.section').removeClass('slideshow-open');
+          $this.css({ 'z-index': '-1' }).removeClass('active').closest('.section').removeClass('slideshow-open');
         }, 200);
       });
     });
 
     $('.slideshow-wrap').on('click', function(e) {
-      console.log(e);
       if (e.target === this) {
         $(this).closest('.image-slideshow').animate({ opacity: 0 }, function() { 
           var $this = $(this);
           setTimeout(function() {
-            $this.css({ 'z-index': '-1' }).closest('.section').removeClass('slideshow-open');
+            $this.css({ 'z-index': '-1' }).removeClass('active').closest('.section').removeClass('slideshow-open');
           }, 200);
         });
       }
     });
 
-    $('.slideshow').bxSlider({
-      auto: false,
-      mode: 'horizontal',
-      speed: 1000,
-      pager: false,
-      pause: 4200,
-      maxSlides: 1,
-      onSlideBefore: function(slideElement, oldIndex, newIndex) {
-        // slideElement.find('.lazy').lazyInterchange().animate({opacity: 1},500);
-      }
-    });
-
   });
 
-  $(window).load(function() {
+  $(window).on('load', function() {
 
     $('html').removeClass("loading");
 
@@ -123,16 +128,14 @@ function updateViewportDimensions() {
             var els = document.getElementsByClassName('lazy');
             var elsl = els.length;
             for (var i = 0; i < elsl; i += 1) {
-              if (!els[i].classList.contains('section-header')) {
-                nodes.push(els[i]);
-              }
+              nodes.push(els[i]);
             }
           },
           elements: nodes,
           appear: function doReveal(el) {
             $(el).lazyInterchange().animate({opacity: 1},500);
           },
-          bounds: 400
+          bounds: 600
         };
       }()));
 
@@ -174,22 +177,22 @@ function updateViewportDimensions() {
     			});
       	};
     	}
+
     } else {
       $('.lazy').lazyInterchange().css({opacity: 1});
     }
 
-  });
 
-  $(window).resize(function() {
-    $('.audio.boxed').each(function() {
-      if (updateViewportDimensions().width >= 768) {
-        var margin = Math.max($(this).outerHeight(), $(this).find('.attachment').outerHeight()) - $(this).outerHeight();
-        margin = (margin / 2) + 30;
-        $(this).css({'margin-top': margin + 'px', 'margin-bottom': margin + 'px'});
-      } else {
-        $(this).removeAttr('style');
+    $(window).resize(function() {
+      for (var slider in sliders) {
+        if (updateViewportDimensions().width < 768) {
+          sliders[slider].startAuto();
+        } else {
+          sliders[slider].stopAuto();
+        }
       }
-    });
-  }).resize();
+    }).resize();
+
+  });
 
 }(jQuery));

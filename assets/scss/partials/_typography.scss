@@ -18,6 +18,14 @@ $nunito:            'Nunito';
 $sans-serif:        $nunito, "Helvetica Neue", Helvetica, Arial, sans-serif;
 $serif:             $nunito, "Georgia", Cambria, Times New Roman, Times, serif;
 
+$fa:                "FontAwesome";
+$lcc-icons:         'fontello'; 
+
+$icon-engage:       \e804;
+$icon-advocate:     \e805;
+$icon-community:    \e806;
+$icon-awards:       \e801;
+
 p {
   -ms-word-wrap: break-word;
   word-break: break-word; //non-standart css for webkit
@@ -37,3 +45,70 @@ p {
        -o-font-feature-settings: "liga", "dlig";
           font-feature-settings: "liga", "dlig";
 }
+
+
+@font-face {
+  font-family: $lcc-icons;
+  src: url('../fonts/fontello.eot?28250350');
+  src: url('../fonts/fontello.eot?28250350#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff2?28250350') format('woff2'),
+       url('../fonts/fontello.woff?28250350') format('woff'),
+       url('../fonts/fontello.ttf?28250350') format('truetype'),
+       url('../fonts/fontello.svg?28250350#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?28250350#fontello') format('svg');
+  }
+}
+*/
+ 
+.icon-lcc:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  // margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+ 
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  // margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Font smoothing. That was taken from TWBS */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+@function unicode($str) {
+  @return unquote("\"")+$str+unquote("\"");
+}
+ 
+.icon-awards:before { content: unicode($icon-awards); } /* '' */
+.icon-engage:before { content: unicode($icon-engage); } /* '' */
+.icon-advocate:before { content: unicode($icon-advocate); } /* '' */
+.icon-community:before { content: unicode($icon-community); } /* '' */

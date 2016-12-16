@@ -2,8 +2,10 @@
     <div class="row">
         <div class="large-12 columns">
             <h3 class="section-title">{{ site.company.name }}</h3>
-            <h1 class="main-title">{{ site.title }}</h1>
-            <h2 class="sub-title">{{ site.description }}</h2> 
+            <object type="image/svg+xml" data="{{ 'lcc_report_main' | append: site.navigation[i].slug | append: '.svg' | prepend: site.imgpath | prepend: site.cdnurl }}" alt="lcc_report_main" width="775"> 
+                <img src="{{ 'lcc_report_main' | append: site.navigation[i].slug | append: '.png' | prepend: site.imgpath | prepend: site.cdnurl }}" width="1873" height="679" alt="icon-care" /> 
+            </object>
+            <h1 class="main-title">Annual Report</h1>
         </div>
     </div>
     <div id="introbutton" class="icon-circle"> 
