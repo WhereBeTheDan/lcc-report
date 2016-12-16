@@ -7,7 +7,7 @@ description: 2016 Annual Report
 baseurl: ''
 url: "http://annualreport.loudounchamber.org"
 cdnurl: ''
-imgpath: '/assets/img/'
+imgpath: '/lcc-report/assets/img/'
 
 # Data
 company:
