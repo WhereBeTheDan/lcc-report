@@ -16,19 +16,6 @@ a {
 
 
 
-/************************
-H1, H2, H3, H4, H5 STYLES
-*************************/
-
-h1 {
-	font-size: 5.3125em;
-}
-
-h2 {
-	font-size: 2.6875em;
-}
-
-
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -224,7 +211,7 @@ blockquote {
 	}
 }
 
-
+ 
 .gallery {
 	display: block;
 
@@ -480,11 +467,9 @@ INTRO
 }
 
 /*********************
-DONORS
+BOARD
 *********************/
 
-.donors {
-	p {
-		margin-top: 5em;
-	}
+.board .directors {
+	float: right;
 }

@@ -25,3 +25,24 @@ Stylesheet: 481px and Up Stylesheet
 		max-width: 200px;
 	}
 }
+
+.icon-stats {
+	.stat {
+		.number, .icon {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.number {
+			max-width: calc(100% - 205px);
+
+			span {
+				font-size: 3em;
+			}
+		}
+
+		.icon {
+			max-width: 200px;
+		}
+	}
+}

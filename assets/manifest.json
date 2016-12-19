@@ -6,7 +6,10 @@
   "dependencies": {
     "main.js": {
       "files": [ "js/main.js" ],
-      "vendor": ["assets/js/vendor/appear.js"],
+      "vendor": [ 
+        "assets/js/vendor/appear.js",
+        "assets/js/vendor/foundation.js" 
+      ],
       "main": true
     },
     "main.css": {

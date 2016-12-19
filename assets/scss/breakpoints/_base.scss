@@ -638,14 +638,28 @@ blockquote {
 		border: none;
 		background: transparent;
 		margin: 0;
+
+		.bx-loading {
+			background: url('#{$cdnurl}#{$assetpath}bx_loader.gif');
+		}
 	}
 
 	.gallery-item {
 		overflow: hidden;
+
+		img {
+			margin: 0 auto;
+		}
 	}
 
 	&.image-slideshow {
 		background-color: $black;
+
+		@media (max-width: 767px) {
+			.slideshow-container {
+				max-height: 420px;
+			}
+		}
 	}
 
 	.bx-controls-direction {
@@ -903,16 +917,19 @@ INTRO
 		margin-top: 0;
 	}
 
-	.bio {
-		@media (max-width: 767px) {
-			max-width: 45%;
-			max-width: calc(50% - 0.5em);
-		}
+	.bio-image {
 		float: left;
-		margin-left: 1em;
+		margin-right: 1em;
+	}
 
-		&:first-child {
-			margin: 0;
+	@media (max-width: 767px) {
+		.bio-image {
+			max-width: calc(35% - 1em);
+		}
+
+		.signature {
+			max-width: 65%;
+			float: left;
 		}
 	}
 
@@ -953,109 +970,6 @@ INTRO
 
 
 /*********************
-PRESENT
-*********************/
-
-.present {
-	.columns > .box-title {
-		margin-top: 2em;
-	}
-}
-
-/*********************
-FINANCIALS
-*********************/
-
-.financial-table {
-	margin-bottom: 1.5em;
-
-	.title, .description {
-		font-family: $sans-serif;
-	}
-
-	.title {
-		font-weight: bold;
-		font-size: 1.125em;
-	}
-
-	.title, p {
-		margin: 0;
-	}
-
-	p {
-		font-size: 1em;
-	}
-
-	span {
-		float: right;
-	}
-
-	header {
-		background-color: $dark-blue;
-		padding: 1em;
-
-		* {
-			color: $white;
-			margin: 0;
-			letter-spacing: 0.5px;
-		}
-
-		.title {
-			text-transform: uppercase;
-		}
-	}
-
-	.table {
-		padding: 0.5em 1.5em 1.5em;
-		background-color: $light-grey;
-		border: 1px solid darken($light-grey, 3%);
-
-		.table-section {
-			margin-bottom: 1em;
-
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			.title {
-				color: $blue;
-			}
-
-			.title, p {
-				padding: 0.4em 0;
-				border-bottom: 1px solid $grey;
-			}
-
-			&.total, &.net {
-				.title {
-					border: 0;
-				}
-			}
-
-			&.total {
-				margin-bottom: 1.5em;
-
-				.title {
-					color: $dark-green;
-				}
-			}
-
-			&.net {
-				background-color: $dark-green;
-				padding: 0 0.5em;
-				margin-left: -0.5em;
-				margin-right: -0.5em;
-
-				.title {
-					color: $white;
-				}
-			}
-		}
-	}
-}
-
-
-/*********************
 GOVERNANCE
 *********************/
 
@@ -1085,21 +999,6 @@ GOVERNANCE
 	}
 }
 
-
-/*********************
-DONORS
-*********************/
-
-.donors {
-	p, h4 {
-		margin-top: 2em;
-	}
-
-	.callout.article:before {
-		top: auto;
-		bottom: -0.35em;
-	}
-}
 
 /*********************
 FOOTER
