@@ -22,8 +22,8 @@ html {
 		background-position: center center;
 		background-size: 300px auto;
 		background-repeat: no-repeat;
-		background-image: url('#{$cdnurl}#{$imgpath}logo/logo_lcc.png');
-		background-image: url('#{$cdnurl}#{$imgpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
+		background-image: url('{$imgpath}logo/logo_lcc.png');
+		background-image: url('{$imgpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
 		overflow: hidden;
 		transition: background-color 0;
 
@@ -641,7 +641,7 @@ blockquote {
 		margin: 0;
 
 		.bx-loading {
-			background: url('#{$cdnurl}#{$imgpath}bx_loader.gif');
+			background: url('#{$imgpath}/bx_loader.gif');
 		}
 	}
 
@@ -808,7 +808,7 @@ SECTION HEADERS
 
 			@if (map-get($values, image)) {
 				.no-js & {
-					background-image: url('#{$cdnurl}#{$imgpath}header/header_bg_#{$section}_m.jpg');
+					background-image: url('#{$imgpath}/header/header_bg_#{$section}_m.jpg');
 				}
 			}
 		}
@@ -848,7 +848,7 @@ SITE HEADER
 	background-color: $light-yellow;
 	background-repeat: no-repeat;
 	background-position: center top;
-	// background-image: url('#{$cdnurl}#{$imgpath}header/header_bg_intro_m.jpg');
+	// background-image: url('#{$imgpath}/header/header_bg_intro_m.jpg');
 	background-size: auto 100%;
 	background-size: cover;
 	background: linear-gradient(to bottom, $light-yellow, $yellow);
