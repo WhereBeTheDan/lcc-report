@@ -10,4 +10,4 @@
         <br/> <a href="{{ site.company.website }}" target="_blank">{{ site.company.name }} Website</a></p>
 </footer>
 
-<script type="text/javascript" src="{{ '/assets/scripts/main.js' | prepend: site.cdnurl }}"></script>
+<script type="text/javascript" src="{{ '/assets/scripts/main' | append: site.jshash | append: '.js' | prepend: site.cdnurl }}"></script>
