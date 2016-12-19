@@ -5,8 +5,10 @@ Author: Sagetopia
 Stylesheet: Variables
 ******************************************************************/
 
-$cdnurl: '';
-$assetpath: '/assets/img/';
+$assetpath: 		'#{$cdnurl}/assets';
+$imgpath: 			'#{$assetpath}/img/';
+
+$fa-font-path:      '#{$cdnurl}/assets/fonts';
 
 /*********************
 COLORS

@@ -22,8 +22,8 @@ html {
 		background-position: center center;
 		background-size: 300px auto;
 		background-repeat: no-repeat;
-		background-image: url('#{$cdnurl}#{$assetpath}logo/logo_lcc.png');
-		background-image: url('#{$cdnurl}#{$assetpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
+		background-image: url('#{$cdnurl}#{$imgpath}logo/logo_lcc.png');
+		background-image: url('#{$cdnurl}#{$imgpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
 		overflow: hidden;
 		transition: background-color 0;
 
@@ -327,7 +327,7 @@ GENERAL STYLES
 	padding: 5em 0 0;
 }
 
-.section-title, .main-title {
+.main-title {
 	color: $white;
 	text-shadow: 2px 2px 5px transparentize($black, .75);
 }
@@ -403,13 +403,14 @@ blockquote {
 	}
 }
 	.attribution {
-		margin-left: 35%;
+		margin: -0.5em 1em 0 35%;
 		font-style: italic;
 		position: relative;
 		font-size: 0.9em;
+		font-weight: bold;
 
 		&:before {
-			content: '-';
+			content: "—";
 			position: absolute;
 			top: 0;
 			right: calc(100% + 0.3em);
@@ -640,7 +641,7 @@ blockquote {
 		margin: 0;
 
 		.bx-loading {
-			background: url('#{$cdnurl}#{$assetpath}bx_loader.gif');
+			background: url('#{$cdnurl}#{$imgpath}bx_loader.gif');
 		}
 	}
 
@@ -807,7 +808,7 @@ SECTION HEADERS
 
 			@if (map-get($values, image)) {
 				.no-js & {
-					background-image: url('#{$cdnurl}#{$assetpath}header/header_bg_#{$section}_m.jpg');
+					background-image: url('#{$cdnurl}#{$imgpath}header/header_bg_#{$section}_m.jpg');
 				}
 			}
 		}
@@ -847,7 +848,7 @@ SITE HEADER
 	background-color: $light-yellow;
 	background-repeat: no-repeat;
 	background-position: center top;
-	// background-image: url('#{$cdnurl}#{$assetpath}header/header_bg_intro_m.jpg');
+	// background-image: url('#{$cdnurl}#{$imgpath}header/header_bg_intro_m.jpg');
 	background-size: auto 100%;
 	background-size: cover;
 	background: linear-gradient(to bottom, $light-yellow, $yellow);
@@ -860,7 +861,7 @@ SITE HEADER
 
   	.section-title {
   		text-transform: uppercase;
-  		color: $green;
+  		color: $dark-green;
   		margin: 0 0 2em;
   	}
 

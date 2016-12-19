@@ -46,6 +46,7 @@ var uglify 			= require( 'gulp-uglify' );
 var lazypipe     	= require( 'lazypipe' );
 var plumber      	= require( 'gulp-plumber' );
 var rev          	= require( 'gulp-rev' );
+var header			= require( 'gulp-header' );
 var cssnano 		= require( 'gulp-cssnano' );
 var imagemin 		= require( 'gulp-imagemin' );
 var cache 			= require( 'gulp-cache' );
@@ -70,6 +71,9 @@ var globs = manifest.globs;
 var project = manifest.getProjectGlobs();
 
 var enabled = {
+	cdn: argv.production,
+	// Enable static asset revisioning when `--production`
+	rev: argv.production,
 	// Disable source maps when `--production`
 	maps: !argv.production,
 	// Fail styles task on error when `--production`
@@ -84,8 +88,14 @@ var enabled = {
 var revManifest = path.dist + 'assets.json';
 
 var writeToManifest = function(directory) {
-	 return lazypipe()
-	    .pipe(gulp.dest, path.dist + directory)();
+  return lazypipe()
+    .pipe(gulp.dest, path.dist + directory)
+    .pipe(browserSync.stream, {match: '**/*.{js,css}'})
+    .pipe(rev.manifest, revManifest, {
+      base: path.dist,
+      merge: true
+    })
+    .pipe(gulp.dest, path.dist)();
 };
 
 // -------------------------------------
@@ -108,7 +118,12 @@ gulp.task( 'browserSync', function() {
 
 gulp.task( 'jekyll', function (callback) {
     var spawn = require( 'child_process' ).spawn;
-    var jekyll = spawn( 'jekyll', ['build', '--watch', '--incremental', '--drafts'], { cwd: config.jekyllPath } );
+    var args = ['build'];  
+    if (!enabled.cdn) {
+    	args.push('--watch', '--incremental', '--drafts', '--config', '_config.yml,_local_config.yml');
+    }
+    var jekyll = spawn( 'jekyll', args, { cwd: config.jekyllPath } );
+
 
     var jekylllogger = function (buffer) {
     	buffer.toString().split(/\n/).forEach( function (message) {
@@ -135,7 +150,13 @@ var cssTasks = function(filename) {
 	    })
 		.pipe(function() {
 	      	return gulpIf(enabled.maps, sourcemaps.init());
-	    })
+	    })		
+	    .pipe(function() {
+			return gulpIf(enabled.cdn, 
+				header('$cdnurl: "https://d280tyru8g19x6.cloudfront.net";'),
+				header('$cdnurl: "";')
+			);
+		})
 		.pipe(function() {
 			return gulpIf('*.scss', sass({
 				outputStyle: 'compressed', 
@@ -147,6 +168,9 @@ var cssTasks = function(filename) {
 		.pipe( concat, filename )
 		.pipe( prefixer, { browsers: ['last 2 versions'] })
 		.pipe( cssnano, { safe: true })
+		.pipe(function() {
+	      return gulpIf(enabled.rev, rev());
+	    })
 		.pipe(function() {
 	      	return gulpIf(enabled.maps, sourcemaps.write('.', {
 	        	sourceRoot: 'jekyll/assets/css/'

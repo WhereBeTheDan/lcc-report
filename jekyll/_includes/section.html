@@ -32,7 +32,7 @@
                     {% assign counter = 0 %}
                     {% for item in include.section.gallery %}
                         {% if item.gallery != false %}
-                            <div class="gallery-item {{ item.type }} col-{{ item.cols | default: '2-2' }}{% if item.new != false %} new-row{% endif %}{% if item.right %} right{% endif %}"{% if item.type == 'image' %} data-index="{{ counter }}"{% endif %}>
+                            <div class="gallery-item {{ item.type }} col col-{{ item.cols | default: '2-2' }}{% if item.new != false %} new-row{% endif %}{% if item.right %} right{% endif %}"{% if item.type == 'image' %} data-index="{{ counter }}"{% endif %}>
                                 <div class="inner">
                                     {% if item.type == 'image' %}
                                         {% assign counter = counter | plus: 1 %}
