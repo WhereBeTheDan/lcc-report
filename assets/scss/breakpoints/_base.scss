@@ -22,8 +22,8 @@ html {
 		background-position: center center;
 		background-size: 300px auto;
 		background-repeat: no-repeat;
-		background-image: url('{$imgpath}logo/logo_lcc.png');
-		background-image: url('{$imgpath}logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
+		background-image: url('#{$imgpath}/logo/logo_lcc.png');
+		background-image: url('#{$imgpath}/logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
 		overflow: hidden;
 		transition: background-color 0;
 

@@ -46,6 +46,7 @@ var uglify 			= require( 'gulp-uglify' );
 var lazypipe     	= require( 'lazypipe' );
 var plumber      	= require( 'gulp-plumber' );
 var rev          	= require( 'gulp-rev' );
+var revReplace		= require( 'gulp-rev-replace' );
 var header			= require( 'gulp-header' );
 var cssnano 		= require( 'gulp-cssnano' );
 var imagemin 		= require( 'gulp-imagemin' );
@@ -116,6 +117,20 @@ gulp.task( 'browserSync', function() {
 //   Task: Jekyll
 // -------------------------------------
 
+function parseHashString(filename) {
+	var hash = filename;
+	if (hash.indexOf('.css') > -1) {
+		hash = hash.replace('.css', '');
+	}
+	if (hash.indexOf('.js') > -1) {
+		hash = hash.replace('.js', '');
+	}
+	if (hash.indexOf('main-') > -1) {
+		hash = hash.replace('main-', '');
+	}
+	return hash;
+}
+
 gulp.task( 'jekyll', function (callback) {
     var spawn = require( 'child_process' ).spawn;
     var args = ['build'];  
@@ -123,7 +138,6 @@ gulp.task( 'jekyll', function (callback) {
     	args.push('--watch', '--incremental', '--drafts', '--config', '_config.yml,_local_config.yml');
     }
     var jekyll = spawn( 'jekyll', args, { cwd: config.jekyllPath } );
-
 
     var jekylllogger = function (buffer) {
     	buffer.toString().split(/\n/).forEach( function (message) {
@@ -191,7 +205,7 @@ gulp.task('styles', ['wiredep'], function() {
     	merged.add(gulp.src(dep.globs, {base: 'scss'})
       		.pipe(cssTasksInstance));
   	});
-  	return merged.pipe(writeToManifest('styles'));;
+  	return merged.pipe(writeToManifest('styles'));
 });
 
 
@@ -228,7 +242,7 @@ gulp.task('scripts', function() {
 	        	.pipe(jsTasks(dep.name))
 	    );
 	});
-	return merged.pipe(writeToManifest('scripts'));;
+	return merged.pipe(writeToManifest('scripts'));
 });
 
 // -------------------------------------
