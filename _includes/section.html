@@ -1,16 +1,10 @@
 <section id="{{ site.navigation[forloop.index].slug }}" class="{{ site.navigation[forloop.index].slug }} section">
-    {% include section-header.html index = forloop.index %}
+    {% include section-header.html index = forloop.index story = include.section.story %}
     <div class="row">
         <div class="large-12 columns">
-
-            {% if include.section.story != nil %}
-                <article class="story boxed">
-                    {{ include.section.story }}
-                </article>
-            {% endif %}
             
             {% if include.section.stats != nil %}
-                <div class="icon-stats">
+                <div class="icon-stats row">
                     {% for stat in include.section.stats %}
                         <aside class="stat">
                             <div class="icon">

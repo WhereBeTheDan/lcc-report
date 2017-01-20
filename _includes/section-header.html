@@ -1,5 +1,11 @@
 <header class="section-header cf">
-    <div class="header-image parallax row large-12 columns" data-lazy="{{ site.navigation[include.index].slug }}">
+    <div class="header-image parallax row large-12 columns"{% if include.bg != false %} data-lazy="{{ site.navigation[include.index].slug }}"{% endif %}>
         <h1 class="main-title">{{ site.navigation[include.index].title }} <span class="icon-lcc icon-{{ site.navigation[include.index].slug }}"></span></h1> 
+
+        {% if include.story != nil %}
+            <div class="story">
+                {{ include.story }}
+            </div>
+        {% endif %}
     </div>
 </header>
