@@ -7,7 +7,7 @@ description: 2016 Annual Report
 baseurl: ''
 url: 'http://annualreport.loudounchamber.org'
 
-cdnurl: 'https://d280tyru8g19x6.cloudfront.net'
+cdnurl: ''
 imgpath: '/assets/img/'
 csshash: '-a904646934'
 jshash: '-43567a4dd0'
