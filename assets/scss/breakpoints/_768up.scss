@@ -192,14 +192,18 @@ blockquote {
 
 .icon-stats {
 	.stat {
+		width: calc(50% - 4px);
+
+		&:nth-child(2) {
+			margin-top: 0;
+		}
+
 		.number, .icon {
 			display: inline-block;
 			vertical-align: middle;
 		}
 
 		.number {
-			max-width: calc(100% - 205px);
-
 			span {
 				font-size: 3em;
 			}
@@ -282,7 +286,6 @@ blockquote {
 		left: 50%;
 		transform: translate(-50%, -50%);
 		width: 775px !important;
-		max-width: 96%;
 
 		.close-btn {
 			position: absolute;
@@ -366,7 +369,6 @@ HEADER
 *********************/
 
 #header {
-	// background-image: url('#{$imgpath}/header/header_bg_intro.jpg');
   	padding: 8em 0;
 
   	.row {
@@ -374,10 +376,12 @@ HEADER
   		max-width: 960px;
   	}
 
-  	.sub-title {
-  		font-size: 2.25em;
-  		max-width: 800px;
-  		margin: 0 auto;
+	.main-title {
+  		display: block;
+  		font-family: $sans-serif;
+  		font-weight: 500;
+  		color: $blue;
+  		text-shadow: none;
   	}
 }
 	#introbutton {

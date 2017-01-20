@@ -85,6 +85,7 @@ var sliders = {};
     $('.slideshow-container').append('<div class="close-btn"><span /><span class="bottom" /></div>');
 
     $('.gallery .gallery-item img').on('click', function() {
+      $(window).resize();
       var slider = sliders[$(this).closest('.section').find('.image-slideshow .slideshow')[0].id];
       slider.goToSlide($(this).closest('.gallery-item').data('index'));
       $(this).closest('.section').addClass('slideshow-open')

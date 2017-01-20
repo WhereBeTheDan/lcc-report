@@ -139,27 +139,27 @@ h1, h2, h3, h4, h5, h6 {
   	line-height: 1.3;
 }
 
-h1 {
+h1, .h1 {
 	font-size: 3em;
 }
 
-h2 {
+h2, .h2 {
 	font-size: 2em;
 }
 
-h3 {
+h3, .h3 {
 	font-size: 1.5625em;
 }
 
-h4 {
+h4, .h4 {
 	font-size: 1.3125em;
 }
 
-h5 {
+h5, .h5 {
 	font-size: 1em;
 }
 
-h6 {
+h6, .h6 {
 	font-size: 0.9em;
 }
 
@@ -579,11 +579,22 @@ blockquote {
 
 
 .icon-stats {
-	margin-bottom: 1.5em;
+	padding: 2em 1em;
+	text-align: center;
 
 	.stat {
+		display: inline-block;
+		margin-top: 1em;
+		padding: 0 1em;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
 		.number {
 			p {
+				margin: 0;
+
 				span {
 					display: block;
 					font-size: 2em;
@@ -799,6 +810,14 @@ SECTION HEADERS
 		top: -0.4em;
 		color: $white;
 	}
+
+	.story {
+		color: $white;
+
+		*:last-child {
+			margin-bottom: 0;
+		}
+	}
 }
 
 @each $section, $values in $sections {
@@ -828,6 +847,8 @@ SECTION HEADERS
 		}
 
 		.icon-stats {
+			background-color: map-get($values, light-color);
+
 			.number {
 				// color: map-get($values, color);
 
@@ -848,7 +869,6 @@ SITE HEADER
 	background-color: $light-yellow;
 	background-repeat: no-repeat;
 	background-position: center top;
-	// background-image: url('#{$imgpath}/header/header_bg_intro_m.jpg');
 	background-size: auto 100%;
 	background-size: cover;
 	background: linear-gradient(to bottom, $light-yellow, $yellow);
@@ -859,23 +879,14 @@ SITE HEADER
   		margin: 0 auto;
   	}
 
-  	.section-title {
+	.section-title {
   		text-transform: uppercase;
   		color: $dark-green;
   		margin: 0 0 2em;
   	}
 
   	.main-title {
-  		font-family: $sans-serif;
-  		font-weight: 500;
-  		color: $blue;
-  	}
-
-  	.sub-title {
-  		color: $white;
-  		border: 0;
-  		margin: 0;
-  		text-shadow: 2px 2px 5px transparentize($black, .75);
+  		display: none;
   	}
 }
 
