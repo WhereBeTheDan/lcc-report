@@ -73,10 +73,11 @@ var sliders = {};
       var sliderId = this.id ? this.id : 'quotes-' + index;
       sliders[sliderId] = $(this).bxSlider({
         auto: false,
+        autoDirection: this.id ? 'next' : 'prev',
         mode: 'horizontal',
         speed: 1000,
         pager: false,
-        pause: 4200,
+        pause: this.id ? 4200 : 7000,
         maxSlides: 1,
         slideWidth: 775
       });
@@ -157,7 +158,7 @@ var sliders = {};
           },
           elements: nodes,
           appear: function doReveal(el) {
-            var bg = 'url(' + cdnurl + '/assets/img/header/header_bg_' + el.getAttribute('data-lazy') + (updateViewportDimensions().width < 768 ? '_m' : '') + '.jpg)';
+            var bg = 'url(' + cdnurl + '/assets/img/header/header_bg_' + el.getAttribute('data-lazy') + '.png)';
             el.style.backgroundImage = bg;
             el.removeAttribute('data-lazy');
           },

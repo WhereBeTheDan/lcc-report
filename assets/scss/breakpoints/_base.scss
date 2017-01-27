@@ -1,4 +1,4 @@
-/******************************************************************
+ /******************************************************************
 Site Name: SIR Annual Report 2015
 Author: Sagetopia
 
@@ -583,7 +583,6 @@ blockquote {
 	text-align: center;
 
 	.stat {
-		display: inline-block;
 		margin-top: 1em;
 		padding: 0 1em;
 
@@ -607,11 +606,6 @@ blockquote {
 					font-size: 0.9em;
 				}
 			}
-		}
-
-		.icon {
-			max-width: 120px;
-			padding-right: 1em;
 		}
 	}
 }
@@ -847,7 +841,7 @@ SECTION HEADERS
 		}
 
 		.icon-stats {
-			background-color: map-get($values, light-color);
+			background-color: transparentize(map-get($values, light-color), 0.2);
 
 			.number {
 				// color: map-get($values, color);
@@ -980,6 +974,29 @@ INTRO
 	}
 }
 
+
+/*********************
+AWARDS
+*********************/
+
+.awards .stat {
+
+	&:before {
+		content: '';
+		display: block;
+		border-top: 3px solid $white;
+		margin-bottom: 0.5em;
+	}
+
+	&.full {
+		margin-top: 3em;
+		text-align: center;
+
+		&:before {
+			content: none;
+		}
+	}
+}
 
 /*********************
 GOVERNANCE

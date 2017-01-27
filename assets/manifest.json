@@ -16,6 +16,9 @@
       "files": [ "scss/main.scss" ],
       "main": true
     },
+    "critical.css": {
+      "files": ["scss/critical.scss"]
+    },
     "fonts": {
       "bower": ["font-awesome"]
     }

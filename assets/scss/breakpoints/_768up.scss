@@ -192,6 +192,7 @@ blockquote {
 
 .icon-stats {
 	.stat {
+		display: inline-block;
 		width: calc(50% - 4px);
 
 		&:nth-child(2) {
@@ -209,8 +210,8 @@ blockquote {
 			}
 		}
 
-		.icon {
-			max-width: 200px;
+		&.full {
+			width: 100%;
 		}
 	}
 }
@@ -346,7 +347,7 @@ SECTION HEADERS
 *********************/
 
 .section-header .header-image {
-	background-size: auto 200%;
+	background-size: auto 150%;
 
 	&.cover {
 		background-size: 100% auto;
@@ -412,3 +413,19 @@ BOARD
 .board .directors {
 	float: right;
 }
+
+
+/*********************
+AWARDS
+*********************/
+
+.awards .stat {
+	width: calc(33.333% - 4px);
+	text-align: left;
+	vertical-align: top;
+	
+	&:nth-child(-n + 3) {
+		margin-top: 0;
+	}
+}
+

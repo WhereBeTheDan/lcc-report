@@ -40,6 +40,7 @@ var argv         	= require( 'minimist' )(process.argv.slice(2));
 var gulp 			= require( 'gulp' );
 var gulpIf 			= require( 'gulp-if' );
 var sass 			= require( 'gulp-sass' );
+var postcss			= require( 'gulp-postcss' );
 var prefixer		= require( 'gulp-autoprefixer' );	
 var browserSync 	= require( 'browser-sync' ).create();
 var uglify 			= require( 'gulp-uglify' );
@@ -134,8 +135,10 @@ function parseHashString(filename) {
 gulp.task( 'jekyll', function (callback) {
     var spawn = require( 'child_process' ).spawn;
     var args = ['build'];  
-    if (!enabled.cdn) {
+    if (!argv.production) {
     	args.push('--watch', '--incremental', '--drafts', '--config', '_config.yml,_local_config.yml');
+    } else {
+    	args.push('JEKYLL_ENV=production');
     }
     var jekyll = spawn( 'jekyll', args, { cwd: config.jekyllPath } );
 
@@ -206,6 +209,24 @@ gulp.task('styles', ['wiredep'], function() {
       		.pipe(cssTasksInstance));
   	});
   	return merged.pipe(writeToManifest('styles'));
+});
+
+
+gulp.task('critical', ['wiredep'], function() {
+	return lazypipe()
+		.pipe(function() {
+			return sass('assets/scss/critical.scss', {
+		        style: 'compressed',
+		        trace: true,
+		        loadPath: ['assets/scss/']
+		    })
+		})
+		.pipe( prefixer, { browsers: ['last 2 versions'] })
+		.pipe( cssnano, { safe: true })
+	    // .pipe(function() {
+	    // 	postcss([ prefixer({ browsers: ['last 2 versions'] }) ]);
+	    // })
+	    .pipe(gulp.dest, config.jekyllPath + '/_includes/')();
 });
 
 
@@ -318,7 +339,12 @@ gulp.task( 'watch', ['browserSync'], function() {
 // -------------------------------------
 
 gulp.task( 'build', function(callback) {
-  	runSequence( 'styles', 'scripts', ['fonts', 'images'], callback );
+	var seq = ['styles', 'scripts', ['fonts', 'images']];
+	if (argv.production) {
+		seq.push('jekyll');
+	}
+	seq.push(callback);
+  	runSequence.apply(null, seq);
 });
 
 
