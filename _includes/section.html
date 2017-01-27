@@ -6,12 +6,14 @@
             {% if include.section.stats != nil %}
                 <div class="icon-stats row">
                     {% for stat in include.section.stats %}
-                        <aside class="stat">
-                            <div class="icon">
-                                <object type="image/svg+xml" data="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.svg" alt="{{ stat.icon.alt }}" height="{{ stat.icon.h }}" width="{{ stat.icon.w }}"> 
-                                    <img src="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.png" width="{{ stat.icon.w }}" height="{{ stat.icon.h }}" alt="{{ stat.icon.alt }}" /> 
-                                </object>
-                            </div>
+                        <aside class="stat{% if stat.full %} full{% endif %}">
+                            {% if stat.icon != nil %}
+                                <div class="icon">
+                                    <object type="image/svg+xml" data="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.svg" alt="{{ stat.icon.alt }}" height="{{ stat.icon.h }}" width="{{ stat.icon.w }}"> 
+                                        <!-- <img src="{{ stat.icon.file | prepend: 'icon/' | prepend: site.imgpath | prepend: site.cdnurl }}.png" width="{{ stat.icon.w }}" height="{{ stat.icon.h }}" alt="{{ stat.icon.alt }}" />  -->
+                                    </object>
+                                </div>
+                            {% endif %}
                             <div class="number">
                                 <p><span>{{ stat.number }}</span> {{ stat.text }}</p>
                             </div>
