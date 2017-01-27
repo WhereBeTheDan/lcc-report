@@ -4,9 +4,18 @@
 
     <title>{{ site.title }} | {{ site.company.name }}</title>
 
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#007bb4">
+    <meta name="theme-color" content="#ffffff">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+    <style>
+      html{font-size:16px;transition:background-color 1s}html.loading{position:fixed;height:100%;width:100%;background-color:#fff;background-position:50%;background-size:300px auto;background-repeat:no-repeat;background-image:url(/assets/img/logo/logo_lcc.png);background-image:url(/assets/img/logo/logo_lcc.svg),linear-gradient(transparent,transparent);overflow:hidden;transition:background-color 0}html.loading body{opacity:0;transition:opacity 0}html.no-js{background:none;overflow:scroll;position:static}html.no-js body{opacity:1}
+    </style>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:400,400i,600,600i,700,700i">
     <link rel="stylesheet" href="{{ '/assets/styles/main' | append: site.csshash | append: '.css' | prepend: site.cdnurl }}">

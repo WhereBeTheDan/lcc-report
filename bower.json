@@ -3,13 +3,14 @@
   "description": "Loudoun County Chamber Annual Report",
   "main": "index.js",
   "authors": [
-    "Dan"
+    "Sagetopia"
   ],
   "license": "ISC",
   "keywords": [
-    "dan",
-    "pili",
-    "wedding"
+    "Loudoun",
+    "County",
+    "Chamber",
+    "Commerce"
   ],
   "homepage": "annualreport.loudounchamber.org",
   "private": true,

@@ -9,9 +9,9 @@ url: 'http://annualreport.loudounchamber.org'
 
 cdnurl: 'https://d280tyru8g19x6.cloudfront.net'
 imgpath: '/assets/img/'
-csshash: '-cc701425b2'
-jshash: '-e0f03f64bc'
-ganalytics: ''
+csshash: '-652d3734e4'
+jshash: '-53abea0005'
+ganalytics: 'UA-91038555-1'
 
 # Data
 company:

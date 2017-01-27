@@ -8,7 +8,21 @@ Stylesheet: Variables
 $assetpath: 		'#{$cdnurl}/assets';
 $imgpath: 			'#{$assetpath}/img';
 
-$fa-font-path:      '#{$cdnurl}/assets/fonts';
+
+/*********************
+FONTS
+*********************/
+
+$roboto:            'roboto';
+$roboto-slab:       'Roboto Slab';
+$nunito:            'Nunito';
+
+$sans-serif:        $nunito, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$serif:             $nunito, "Georgia", Cambria, Times New Roman, Times, serif;
+
+$fa:                "FontAwesome";
+$lcc-icons:         'fontello'; 
+
 
 /*********************
 COLORS

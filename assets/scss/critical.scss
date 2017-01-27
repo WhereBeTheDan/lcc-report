@@ -8,6 +8,40 @@ Stylesheet: Main Stylesheet
 // Sass variables
 @import "partials/variables";
 
-body {
-	font-size: 1em;
+/*********************
+LOADING SCREEN
+*********************/
+
+html {
+	font-size: 16px;
+	transition: background-color 1s;
+
+	&.loading {
+		position: fixed;
+		height: 100%;
+		width: 100%;
+		background-color: $white;
+		background-position: center center;
+		background-size: 300px auto;
+		background-repeat: no-repeat;
+		background-image: url('#{$imgpath}/logo/logo_lcc.png');
+		background-image: url('#{$imgpath}/logo/logo_lcc.svg'), linear-gradient(transparent, transparent);
+		overflow: hidden;
+		transition: background-color 0;
+
+		body {
+			opacity: 0;
+		  	transition: opacity 0;
+		}
+	}
+
+	&.no-js {
+		background: none;
+  		overflow: scroll;
+  		position: static;
+
+  		body {
+  			opacity: 1;
+  		}
+	}
 }
